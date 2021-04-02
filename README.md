@@ -344,6 +344,7 @@ return (exp<<23)|(uf&0x807fffff);
 * 首先把小数部分（23位）转化为整数（和23比较），然后判断是否溢出：如果和原符号相同则直接返回，否则如果结果为负（原来为正）则溢出返回越界指定值0x80000000u，否则原来为负，结果为正，则需要返回其补码（相反数）。
 
 ### 13. 求2的x次方
+![image](https://user-images.githubusercontent.com/76896357/113407483-f4dc4b00-93df-11eb-86e5-73f72e487994.png)
 
 	既然是x次方，那么exp=x+127
 	
@@ -355,3 +356,7 @@ int m = 0xff<<23;
   if(exp >= 255) return m;
 ```
 	
+最后结果
+![image](https://user-images.githubusercontent.com/76896357/113407543-14737380-93e0-11eb-97ca-428f033c309a.png)
+
+
